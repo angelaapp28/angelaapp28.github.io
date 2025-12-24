@@ -35,7 +35,7 @@ section {
 
 
 img {
-  width: 100%;
+  width: 90%;
   max-width: 400px;
   object-fit: cover;
   vertical-align: baseline;
@@ -52,4 +52,10 @@ img {
 
 .intro {
   flex: 1;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
 }
