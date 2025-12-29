@@ -67,10 +67,10 @@ img {
   flex: 1;
 }
 
-.container {
-  height: 100%;
-  width: 100%;
-  align-items: center;
-  max-width: 1200px;
-  margin: auto;
+
+
+.pdf-fallback {
+  margin-top: 10px;
+  font-size: 1rem;
+  text-align: center;
 }
