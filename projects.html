@@ -1,44 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-    <link rel="stylesheet" href="styles.css">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <link rel="stylesheet" href="styles.css">
 
-     <!-- favicon -->
-     <link rel="icon" type="image/png" href="favicon.png">
+        <!-- favicon -->
+        <link rel="icon" type="image/png" href="favicon.png">
 
-    <title>Projects | Angela Appiah</title>
-</head>
+        <title>Projects | Angela Appiah</title>
+        <style>
+
+            .projects-tabs {
+                max-width: 1000px;
+                margin: 0 auto;
+                padding: 10px 40px;
+            }
+            
+            .page-title {
+                text-align: center;
+                margin-bottom: 40px;
+                color: #2c3e50;
+            }
+
+            .tabs {
+                display: flex;
+                border-bottom: 2px solid #ddd;
+                margin-bottom: 20px;
+            }
+
+            .tab {
+                padding: 15px 30px;
+                background: none;
+                border: none;
+                cursor: pointer;
+                font-size: 1em;
+                color: #666;
+                position: relative;
+                transition: color 0.3s;
+            }
+            
+            .tab.active {
+                color: #68a762;
+                font-weight: bold;
+            }
+            
+            .tab.active::after {
+                content: '';
+                position: absolute;
+                bottom: -2px;
+                left: 0;
+                right: 0;
+                height: 3px;
+                background: #68a762;
+            }
+
+            .tab-content {
+                display: none;
+                animation: fadeIn 0.5s;
+            }
+            
+            .tab-content.active {
+                display: block;
+            }
+            
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+            
+            .project-overview {
+                display: grid;
+                grid-template-columns: 2fr 1fr;
+                gap: 30px;
+                margin-bottom: 30px;
+            }
+
+            .project-technologies {
+                background: #f9f9f9;
+                padding: 20px;
+                border-radius: 8px;
+            }
+            
+            .project-technologies h4 {
+                margin-top: 0;
+                color: #68a762;
+            }
+            
+            .code-highlight {
+                background: #cadfce;
+                color: #101010;
+                padding: 10px;
+                border-radius: 10px;
+                overflow-x: auto;
+                font-family: 'Consolas', monospace;
+            }
+            
+        </style>
+    </head>
 
 
-<body>
-    <header>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="resume.html">Resume</a>
-            <a href="projects.html">Projects</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </header>
+    <body>
+        <header>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="resume.html">Resume</a>
+                <a href="projects.html">Projects</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </header>
 
 
-    <section id="portfolio">
-        <h1>Projects</h1>
+        <div class="projects-tabs">
+            <h1 class="page_title">Projects Portfolio</h1>
 
-        <h4>Fall 2025 Projects</h4>
-        <div class="portfolio">
-        <p>Project 1 - [Brief description]</p>
+            <div class="tabs">  
+                <button class="tab active" onclick="openTab('tab1')">3D Registration</button>
+                <button class="tab" onclick="openTab('tab2')">AI Language Model</button>
+                <button class="tab" onclick="openTab('tab3')">Robot Navigation</button>
+                <button class="tab" onclick="openTab('tab4')">Surgical Image Seg.</button>
+                <button class="tab" onclick="openTab('tab5')">Andriod Mobile Game</button>
+            </div>
+            
+            <!-- Project 1 -->
+            <div id="tab1" class="tab-content active">
+                <div class="project-header">
+                    <h2>3D Point Cloud Registration</h2>
+                    <p class="project-tagline">Aligning 3D medical scans using iterative algorithms</p>
+                </div>
+                <div class="project-overview">
+                    <h3>Project Overview</h3>
+                    <p>When doctors need to align 3D medical scans (like CT or MRI images) 
+                        taken at different times or from different angles, they face a challenging 
+                        computational problem. This project solves that problem by automatically 
+                        finding the best alignment between different 3D scans.</p>
 
+                            <h3>Core Algorithm</h3>
+                            <div class="code-highlight">
+                                <pre><code class="python"> 
+    # ICP Convergence Loop
+    for iteration in range(max_iterations):
 
-        <p>Project 2 - [Brief description]</p>
+        # Transform points using current registration
+        transformed = [F_reg @ np.append(d_k, 1.0) for d_k in all_d_k]
+                                        
+        # Find closest points on mesh
+        closest_points, distances = find_closest_points(transformed, mesh)
+                                        
+        # Compute new transformation
+        F_reg_new = kabsch_algorithm(all_d_k, closest_points)
+                                        
+        # Check convergence
+        if converged(F_reg, F_reg_new, distances):
+            break
+                                </code></pre>
+                            </div>
+                        </div>
+                    </div>
+                
+                
 
+            </div>
 
-        <p>Project 3 - [Brief description]</p>
+            <!-- Project 2 -->
+            <div id="tab2" class="tab-content">
+                <div class="project-detail">
+                <h2>Project 2</h2>
+
+                    <div class="project-overview">
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            
+            <div id="tab3" class="tab-content">
+                <div class="project-detail">
+                <h2>Project 3</h2>
+
+                    <div class="project-overview">
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div id="tab4" class="tab-content">
+                <div class="project-detail">
+                <h2>Project 4</h2>
+
+                    <div class="project-overview">
+                        
+                    </div>
+                </div>
+            </div>
+            
         </div>
-    </section>
 
+        <script>
+            function openTab(tabName) {
 
-</body>
+                var tabContents = document.getElementsByClassName("tab-content");
+                for (var i = 0; i < tabContents.length; i++) {
+                    tabContents[i].classList.remove("active");
+                }
+                
+
+                var tabs = document.getElementsByClassName("tab");
+                for (var i = 0; i < tabs.length; i++) {
+                    tabs[i].classList.remove("active");
+                }
+
+                document.getElementById(tabName).classList.add("active");
+                
+                event.currentTarget.classList.add("active");
+            }
+        </script>
+
+    </body>
+</html>
