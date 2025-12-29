@@ -70,7 +70,7 @@ img {
 .container {
   height: 100%;
   width: 100%;
+  align-items: center;
   max-width: 1200px;
   margin: auto;
-  padding: 5px;
 }
