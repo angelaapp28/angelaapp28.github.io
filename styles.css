@@ -3,7 +3,7 @@ body {
   margin: 0;
   padding: 0;
   line-height: 1.6;
-  background-color: #f4f4f9;
+  background-color: #e8f7eb;
   color: #333;
   height: 2000px;
 }
@@ -46,8 +46,21 @@ img {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content:space-around;
+  justify-content:space-between;
   gap: 3rem;
+  margin-top: 40px;
+}
+
+/* home page pfp */
+.profile {
+  flex: 0 0 auto;
+}
+
+/* home page pfp */
+.caption {
+  text-align: align;
+  flex: 0 0 auto;
+  /* max-wodth: 50%; */
 }
 
 .intro {
