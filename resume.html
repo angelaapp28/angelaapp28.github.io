@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
     <link rel="stylesheet" href="styles.css">
-    
+
     <!-- favicon -->
      <link rel="icon" type="image/png" href="favicon.png">
     <title>Resume | Angela Appiah</title>
@@ -14,7 +14,7 @@
 
 <style>
     .pdf {
-        width: 85%;
+        width: 100%;
         aspect-ratio: 0.5;
         margin: 0;
         padding: 0;
@@ -32,6 +32,12 @@
     h1 {
         text-align: center;
     }
+    
+    .pdf-fallback {
+        margin-top: 10px;
+        font-size: 1rem;
+        text-align: center;
+    }
 
 </style>
 
@@ -47,7 +53,7 @@
     </header>
 
     <div class="resume-container">
-        <h1 > Resume </h1>
+        <h1> Resume </h1>
         <object class="pdf" data="resume.pdf" width="800" height="500"></object>
         <p class="pdf-fallback">If the PDF doesn't display, <a href="resume.pdf" target="_blank">click here to view it</a>.</p>
     </div>        
