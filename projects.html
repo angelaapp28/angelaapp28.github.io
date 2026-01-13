@@ -9,14 +9,14 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <title>Projects | Angela Appiah</title>
     <style>
-        /* Main Container */
+        /* main container */
         .projects-container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 40px 20px;
         }
 
-        /* Page Title */
+        /* page title */
         .page-title {
             text-align: center;
             margin-bottom: 50px;
@@ -37,7 +37,7 @@
             border-radius: 2px;
         }
 
-        /* Tabs Navigation */
+        /* tabs nav */
         .tabs-container {
             margin-bottom: 40px;
             border-bottom: 2px solid #e0e0e0;
@@ -81,7 +81,7 @@
             border-bottom: 3px solid #68a762;
         }
 
-        /* Tab Content */
+        /* tab content */
         .tab-content {
             display: none;
             animation: fadeIn 0.5s ease-in-out;
@@ -108,7 +108,7 @@
             }
         }
 
-        /* Project Header */
+        /* proj header */
         .project-header {
             margin-bottom: 30px;
             border-bottom: 1px solid #eee;
@@ -127,7 +127,7 @@
             font-weight: 500;
         }
 
-        /* Project Content */
+        /* proj content */
         .project-overview {
             display: grid;
             grid-template-columns: 2fr 1fr;
@@ -142,7 +142,7 @@
             }
         }
 
-        /* Project Details */
+        /* proj details */
         .project-details h3 {
             color: #2c3e50;
             margin-top: 30px;
@@ -167,7 +167,7 @@
             margin-bottom: 8px;
         }
 
-        /* Mathematical Notation */
+        /* math notation */
         .math-formula {
             background: #f8f9fa;
             padding: 20px;
@@ -182,7 +182,7 @@
             font-size: 1.1em;
         }
 
-        /* Technologies Sidebar */
+        /* tech sidebar */
         .project-technologies {
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             padding: 25px;
@@ -213,7 +213,7 @@
             border-bottom: none;
         }
 
-        /* Code Highlight */
+        /* code highlight */
         .code-highlight {
             background: #2d3748;
             color: #e2e8f0;
@@ -250,33 +250,7 @@
             font-style: italic;
         }
 
-        /* Results Table */
-        .results-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .results-table th {
-            background: #68a762;
-            color: white;
-            padding: 12px;
-            text-align: left;
-            font-weight: 600;
-        }
-
-        .results-table td {
-            padding: 12px;
-            border-bottom: 1px solid #eee;
-        }
-
-        .results-table tr:hover {
-            background: #f8f9fa;
-        }
+ 
 
         /* Features List */
         .features-list {
@@ -322,9 +296,7 @@
                 font-size: 1.8rem;
             }
 
-            .results-table {
-                font-size: 0.9em;
-            }
+            
         }
     </style>
 </head>
@@ -764,23 +736,19 @@
 
     <script>
         function openTab(tabName) {
-            // Hide all tab contents
             var tabContents = document.getElementsByClassName("tab-content");
             for (var i = 0; i < tabContents.length; i++) {
                 tabContents[i].classList.remove("active");
             }
 
-            // Remove active class from all tabs
             var tabs = document.getElementsByClassName("tab");
             for (var i = 0; i < tabs.length; i++) {
                 tabs[i].classList.remove("active");
             }
 
-            // Show selected tab content and mark tab as active
             document.getElementById(tabName).classList.add("active");
             event.currentTarget.classList.add("active");
 
-            // Smooth scroll to top of tab content on mobile
             if (window.innerWidth < 768) {
                 document.getElementById(tabName).scrollIntoView({
                     behavior: 'smooth',
@@ -789,7 +757,6 @@
             }
         }
 
-        // Optional: Auto-scroll active tab into view on mobile
         window.addEventListener('resize', function () {
             if (window.innerWidth < 768) {
                 const activeTab = document.querySelector('.tab.active');

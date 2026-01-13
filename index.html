@@ -4,15 +4,264 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
     <link rel="stylesheet" href="styles.css">
-
     <!-- favicon -->
-     <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <title>Angela Appiah | Computer Science Student</title>
+    <style>
+        /* Additional styles for home page */
+        :root {
+            --primary-color: #68a762;
+            --secondary-color: #2c3e50;
+            --accent-color: #4a90e2;
+            --light-gray: #f8f9fa;
+            --text-color: #333;
+        }
 
-    <title>Angela Appiah | Personal Website</title>
+        .wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
+
+        @media (min-width: 768px) {
+            .wrapper {
+                flex-direction: row;
+                align-items: flex-start;
+                gap: 60px;
+            }
+        }
+
+        .profile-section {
+            flex-shrink: 0;
+            width: 300px;
+            text-align: center;
+        }
+
+        .profile-section img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            background: var(--light-gray);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .contact-info a {
+            color: var(--primary-color);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .content-section {
+            flex: 1;
+        }
+
+        .caption h1 {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 10px;
+        }
+
+        .caption h2 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 25px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .section h3 {
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section h3 i {
+            color: var(--primary-color);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .skill-category {
+            background: var(--light-gray);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .skill-category h4 {
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+
+        .skill-category ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .skill-category li {
+            padding: 5px 0;
+            border-bottom: 1px dashed #ddd;
+        }
+
+        .skill-category li:last-child {
+            border-bottom: none;
+        }
+
+        .experience-item {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .experience-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .experience-header h4 {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            margin: 0;
+        }
+
+        .date {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .role {
+            color: var(--accent-color);
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .experience-item ul {
+            padding-left: 20px;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .experience-item li {
+            margin-bottom: 8px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .highlight-box h3 {
+            color: var(--secondary-color);
+            margin-top: 0;
+        }
+
+        .quick-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn:hover {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Font Awesome icons */
+        .icon {
+            display: inline-block;
+            width: 24px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .wrapper {
+                padding: 20px 15px;
+                gap: 30px;
+            }
+            
+            .caption h1 {
+                font-size: 2rem;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .quick-links {
+                justify-content: center;
+            }
+        }
+    </style>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-
 
 <body>
     <header>
@@ -24,27 +273,187 @@
         </nav>
     </header>
 
-
-    <!-- pfp and caption-->
-
     <div class="wrapper">
-        <div class="profile">
-            <img src="headshot.JPEG" alt="headshot">
+        <div class="profile-section">
+            <div class="profile">
+                <img src="headshot.JPEG" alt="Angela Appiah Headshot">
+            </div>
+            
+            <div class="caption">
+                <h1>Angela Appiah</h1>
+                <h2>Computer Science Student</h2>
+                <p>
+                    Johns Hopkins University<br>
+                    Class of 2027<br>
+                    Passionate about impactful software solutions and inclusive tech communities
+                </p>
+            </div>
+            
+            <div class="contact-info">
+                <h3>Contact</h3>
+                <a href="mailto:appiah.2823@gmail.com">
+                    <i class="fas fa-envelope icon"></i> appiah.2823@gmail.com
+                </a>
+                <a href="tel:7177699209">
+                    <i class="fas fa-phone icon"></i> (717) 769-9209
+                </a>
+                <a href="https://www.linkedin.com/in/angela-appiah" target="_blank">
+                    <i class="fab fa-linkedin icon"></i> LinkedIn
+                </a>
+                <a href="https://github.com/angelaapp28" target="_blank">
+                    <i class="fab fa-github icon"></i> GitHub
+                </a>
+            </div>
         </div>
 
-        <div class="caption">
-            <h2>Angela Appiah</h2>
-            <p>
-                Computer Science Student at Johns Hopkins University<br>
-                Class of 2027<br>
+        <div class="content-section">
+            <!-- About Section -->
+            <div class="section">
+                <h3><i class="fas fa-user-graduate"></i> About Me</h3>
+                <p>I'm a dedicated Computer Science student at Johns Hopkins University with a passion for creating impactful software solutions that address real-world challenges. My academic journey has been complemented by hands-on project experience, leadership roles, and a commitment to fostering inclusive communities in technology.</p>
+                
+                <p>Through my coursework and projects, I've developed expertise in areas including machine learning, computer vision, natural language processing, and robotics. I'm particularly drawn to opportunities where technology can make a meaningful difference in people's lives.</p>
+            </div>
 
+            <!-- Skills Section -->
+            <div class="section">
+                <h3><i class="fas fa-code"></i> Technical Skills</h3>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>Programming</h4>
+                        <ul>
+                            <li>Python</li>
+                            <li>Java</li>
+                            <li>C++</li>
+                            <li>JavaScript</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Machine Learning</h4>
+                        <ul>
+                            <li>PyTorch</li>
+                            <li>TensorFlow</li>
+                            <li>Computer Vision</li>
+                            <li>NLP</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Web & Mobile</h4>
+                        <ul>
+                            <li>HTML/CSS</li>
+                            <li>React</li>
+                            <li>Android Development</li>
+                            <li>Unity</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Tools & Methods</h4>
+                        <ul>
+                            <li>Git & GitHub</li>
+                            <li>Agile Development</li>
+                            <li>Data Structures</li>
+                            <li>Algorithm Design</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
-            </p>
+            <!-- Experience Highlights -->
+            <div class="section">
+                <h3><i class="fas fa-briefcase"></i> Experience & Leadership</h3>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h4>Johns Hopkins University</h4>
+                        <span class="date">2024 - Present</span>
+                    </div>
+                    <div class="role">Chair, Women in Computer Science</div>
+                    <ul>
+                        <li>Lead initiatives to foster diversity and inclusion within the Computer Science Department</li>
+                        <li>Organize technical workshops, networking events, and mentorship programs</li>
+                        <li>Create supportive community for women pursuing computer science careers</li>
+                    </ul>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h4>Johns Hopkins University</h4>
+                        <span class="date">2024 - Present</span>
+                    </div>
+                    <div class="role">Resident Advisor</div>
+                    <ul>
+                        <li>Support first-year students in their transition to university life</li>
+                        <li>Develop and implement community-building programs</li>
+                        <li>Provide guidance and resources for academic and personal success</li>
+                    </ul>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h4>Alpha Phi Omega</h4>
+                        <span class="date">2024 - Present</span>
+                    </div>
+                    <div class="role">Service Fraternity Member</div>
+                    <ul>
+                        <li>Participate in regular service initiatives supporting local organizations</li>
+                        <li>Develop leadership skills through community engagement projects</li>
+                        <li>Collaborate on initiatives that strengthen underserved communities</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Highlight Box -->
+            <div class="highlight-box">
+                <h3>What Drives Me</h3>
+                <p>I'm passionate about technology that makes a real difference. Whether it's developing surgical navigation systems that improve patient outcomes, creating language models that enhance communication, or building robotics systems that navigate complex environments, I believe in the power of code to solve meaningful problems.</p>
+                <p>My approach combines technical rigor with a commitment to inclusive design and community impact. I'm always eager to take on new challenges, learn from experienced mentors, and contribute to projects that matter.</p>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="quick-links">
+                <a href="projects.html" class="btn">
+                    <i class="fas fa-project-diagram"></i> View Projects
+                </a>
+                <a href="resume.html" class="btn btn-outline">
+                    <i class="fas fa-file-alt"></i> View Resume
+                </a>
+                <a href="contact.html" class="btn btn-outline">
+                    <i class="fas fa-envelope"></i> Get in Touch
+                </a>
+            </div>
         </div>
-       
     </div>
 
-
-
+    <script>
+        // Simple animation for skill categories
+        document.addEventListener('DOMContentLoaded', function() {
+            const skillCategories = document.querySelectorAll('.skill-category');
+            
+            skillCategories.forEach((category, index) => {
+                category.style.opacity = '0';
+                category.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    category.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    category.style.opacity = '1';
+                    category.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+            
+            // Add hover effect to buttons
+            const buttons = document.querySelectorAll('.btn');
+            buttons.forEach(button => {
+                button.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-3px)';
+                    this.style.boxShadow = '0 5px 15px rgba(104, 167, 98, 0.3)';
+                });
+                
+                button.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = 'none';
+                });
+            });
+        });
+    </script>
 </body>
 </html>
