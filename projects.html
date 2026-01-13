@@ -8,6 +8,24 @@
     <!-- favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
     <title>Projects | Angela Appiah</title>
+
+    <script>
+        MathJax = {
+          tex: {
+            inlineMath: [['\\(', '\\)']],
+            displayMath: [['\\[', '\\]']],
+            processEscapes: true,
+            packages: {'[+]': ['ams']}
+          },
+          options: {
+            ignoreHtmlClass: 'tex2jax_ignore',
+            processHtmlClass: 'tex2jax_process'
+          }
+        };
+    </script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
     <style>
         /* main container */
         .projects-container {
@@ -167,19 +185,38 @@
             margin-bottom: 8px;
         }
 
+        
         /* math notation */
         .math-formula {
             background: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-            border-left: 4px solid #68a762;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border-left: 5px solid #68a762;
+            overflow-x: auto;
         }
 
         .math-formula p {
-            margin: 10px 0;
+            margin: 12px 0;
             font-family: 'Cambria Math', 'Times New Roman', serif;
-            font-size: 1.1em;
+            font-size: 1.15em;
+            line-height: 1.6;
+        }
+
+        /* Style for math elements */
+        .math-formula .MathJax {
+            font-size: 1.1em !important;
+        }
+
+        /* Center display math */
+        .math-formula .mjx-block {
+            margin: 15px 0;
+            text-align: center;
+        }
+
+        /* Ensure inline math doesn't break line */
+        .math-formula .mjx-chtml {
+            white-space: nowrap;
         }
 
         /* tech sidebar */
@@ -300,6 +337,18 @@
         }
     </style>
 </head>
+
+
+
+
+
+
+
+
+
+
+
+
 
 <body>
     <header>
