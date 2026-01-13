@@ -4,15 +4,363 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
     <link rel="stylesheet" href="styles.css">
-    
     <!-- favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
-
     <title>Contact | Angela Appiah</title>
-</head>
+    <style>
+        /* Contact Page Styles */
+        body {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            min-height: 100vh;
+        }
 
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .contact-header h1 {
+            color: #2c3e50;
+            font-size: 3rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .contact-header h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: #68a762;
+            border-radius: 2px;
+        }
+
+        .contact-header p {
+            color: #666;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Main Contact Content */
+        .contact-main {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        /* Contact Info Card */
+        .contact-info-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border-top: 5px solid #68a762;
+        }
+
+        .contact-info-card h2 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-info-card h2 i {
+            color: #68a762;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .contact-item:hover {
+            background: #f8f9fa;
+            border-color: #e0e0e0;
+            transform: translateX(5px);
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: #68a762;
+            min-width: 30px;
+            text-align: center;
+            margin-top: 5px;
+        }
+
+        .contact-content h3 {
+            color: #2c3e50;
+            margin: 0 0 5px 0;
+            font-size: 1.1rem;
+        }
+
+        .contact-content p, 
+        .contact-content a {
+            color: #666;
+            margin: 0;
+            text-decoration: none;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .contact-content a:hover {
+            color: #68a762;
+            text-decoration: underline;
+        }
+
+        /* Social Links Section */
+        .social-section {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border-top: 5px solid #4a90e2;
+        }
+
+        .social-section h2 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .social-section h2 i {
+            color: #4a90e2;
+        }
+
+        .social-section p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .social-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            color: #2c3e50;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
+
+        .social-link:hover {
+            background: #68a762;
+            color: white;
+            border-color: #68a762;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(104, 167, 98, 0.3);
+        }
+
+        .social-link i {
+            font-size: 1.8rem;
+            width: 40px;
+            text-align: center;
+        }
+
+        .social-link-content h3 {
+            margin: 0 0 5px 0;
+            font-size: 1.1rem;
+        }
+
+        .social-link-content p {
+            margin: 0;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Location Section */
+        .location-section {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-top: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .location-section h2 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .location-section h2 i {
+            color: #68a762;
+        }
+
+        .location-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            align-items: center;
+        }
+
+        .location-text p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .location-text ul {
+            color: #666;
+            padding-left: 20px;
+            line-height: 1.8;
+        }
+
+        .location-text li {
+            margin-bottom: 8px;
+        }
+
+        .map-placeholder {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            border: 2px dashed #ddd;
+        }
+
+        .map-placeholder i {
+            font-size: 3rem;
+            color: #68a762;
+            margin-bottom: 15px;
+        }
+
+        .map-placeholder h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .map-placeholder p {
+            color: #666;
+            margin: 5px 0;
+        }
+
+        /* Call to Action */
+        .cta-section {
+            text-align: center;
+            margin-top: 60px;
+            padding: 40px;
+            background: linear-gradient(135deg, #68a762 0%, #4a90e2 100%);
+            border-radius: 15px;
+            color: white;
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 35px;
+            background: white;
+            color: #68a762;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #f8f9fa;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .contact-container {
+                padding: 40px 20px;
+            }
+            
+            .contact-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .contact-info-card,
+            .social-section,
+            .location-section,
+            .cta-section {
+                padding: 30px;
+            }
+            
+            .social-links {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-header h1 {
+                font-size: 2rem;
+            }
+            
+            .contact-info-card,
+            .social-section,
+            .location-section,
+            .cta-section {
+                padding: 20px;
+            }
+            
+            .contact-item {
+                padding: 10px;
+            }
+        }
+    </style>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
 
 <body>
     <header>
@@ -24,10 +372,177 @@
         </nav>
     </header>
 
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>Feel free to reach out via email at <a href="mailto:appiah.2823@gmail.com">appiah.2823@gmail.com</a> or connect with me on <a href="https://www.linkedin.com/in/angela-appiah-489891290/">LinkedIn</a>.</p>
-    </section>
+    <div class="contact-container">
+        <div class="contact-header">
+            <h1>Get In Touch</h1>
+            <p>I'm always open to discussing new opportunities, collaborations, or just having a good conversation about technology and innovation.</p>
+        </div>
 
+        <div class="contact-main">
+            <!-- Contact Information -->
+            <div class="contact-info-card">
+                <h2><i class="fas fa-address-card"></i> Contact Information</h2>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div class="contact-content">
+                            <h3>Email</h3>
+                            <a href="mailto:appiah.2823@gmail.com">appiah.2823@gmail.com</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div class="contact-content">
+                            <h3>Phone</h3>
+                            <a href="tel:7177699209">(717) 769-9209</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="contact-content">
+                            <h3>Location</h3>
+                            <p>Baltimore, Maryland<br>Johns Hopkins University</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-user-graduate"></i>
+                        <div class="contact-content">
+                            <h3>Education</h3>
+                            <p>Computer Science, Class of 2027<br>Johns Hopkins University</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+            <!-- Social Links Section -->
+            <div class="social-section">
+                <h2><i class="fas fa-share-alt"></i> Connect With Me</h2>
+                <p>Follow my work and connect with me on these platforms:</p>
+                
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/angela-appiah-489891290/" class="social-link" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                        <div class="social-link-content">
+                            <h3>LinkedIn</h3>
+                            <p>Professional network and experience</p>
+                        </div>
+                    </a>
+                    
+                    <a href="https://github.com/angelaapp28" class="social-link" target="_blank">
+                        <i class="fab fa-github"></i>
+                        <div class="social-link-content">
+                            <h3>GitHub</h3>
+                            <p>Projects and code repositories</p>
+                        </div>
+                    </a>
+                    
+                    <a href="resume.html" class="social-link">
+                        <i class="fas fa-file-pdf"></i>
+                        <div class="social-link-content">
+                            <h3>Resume</h3>
+                            <p>View and download my resume</p>
+                        </div>
+                    </a>
+                    
+                    <a href="projects.html" class="social-link">
+                        <i class="fas fa-project-diagram"></i>
+                        <div class="social-link-content">
+                            <h3>Projects</h3>
+                            <p>See my technical projects</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Location Section -->
+        <div class="location-section">
+            <h2><i class="fas fa-map-marked-alt"></i> My Location</h2>
+            <div class="location-info">
+                <div class="location-text">
+                    <p>I'm currently based in Baltimore, Maryland, where I'm pursuing my Computer Science degree at Johns Hopkins University.</p>
+                    <p>Whether you're nearby or across the globe, I'm always interested in connecting with fellow students, professionals, and innovators in the tech community.</p>
+                    <p>Feel free to reach out for:</p>
+                    <ul>
+                        <li>Internship and career opportunities</li>
+                        <li>Technical collaboration on projects</li>
+                        <li>Research discussions</li>
+                        <li>Networking and mentorship</li>
+                        <li>Speaking engagements or workshops</li>
+                    </ul>
+                </div>
+                <div class="map-placeholder">
+                    <i class="fas fa-university"></i>
+                    <h3>Johns Hopkins University</h3>
+                    <p>Homewood Campus</p>
+                    <p>Baltimore, Maryland</p>
+                    <p>United States</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="cta-section">
+            <h2>Ready to Connect?</h2>
+            <p>The best way to reach me is via email at appiah.2823@gmail.com. I typically respond within 24-48 hours. I'm excited to hear about potential opportunities, collaborations, or just to chat about technology!</p>
+            <a href="mailto:appiah.2823@gmail.com" class="cta-button">
+                <i class="fas fa-envelope"></i> Send Me an Email
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Add animations to contact items
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactItems = document.querySelectorAll('.contact-item');
+            contactItems.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateX(-20px)';
+                
+                setTimeout(() => {
+                    item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateX(0)';
+                }, index * 100);
+            });
+            
+            // Add animations to social links
+            const socialLinks = document.querySelectorAll('.social-link');
+            socialLinks.forEach((link, index) => {
+                link.style.opacity = '0';
+                link.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    link.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    link.style.opacity = '1';
+                    link.style.transform = 'translateY(0)';
+                }, index * 100 + 300);
+            });
+            
+            // Add hover effect to social links
+            socialLinks.forEach(link => {
+                link.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-3px)';
+                });
+                
+                link.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+            
+            // Add hover effect to CTA button
+            const ctaButton = document.querySelector('.cta-button');
+            ctaButton.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px)';
+            });
+            
+            ctaButton.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
 </body>
+</html>

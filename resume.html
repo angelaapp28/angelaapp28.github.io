@@ -4,43 +4,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
     <link rel="stylesheet" href="styles.css">
-
     <!-- favicon -->
-     <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="icon" type="image/png" href="favicon.png">
     <title>Resume | Angela Appiah</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            min-height: 100vh;
+        }
+
+        .resume-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: #68a762;
+            border-radius: 2px;
+        }
+
+        .pdf-wrapper {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            border-top: 4px solid #68a762;
+        }
+
+        .pdf {
+            width: 100%;
+            height: 700px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background: #f8f9fa;
+        }
+
+        .pdf-fallback {
+            margin-top: 20px;
+            font-size: 1rem;
+            text-align: center;
+            color: #666;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border: 1px dashed #ddd;
+        }
+
+        .pdf-fallback a {
+            color: #68a762;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .pdf-fallback a:hover {
+            color: #4a90e2;
+            text-decoration: underline;
+        }
+
+        .quick-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: #68a762;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid #68a762;
+        }
+
+        .btn:hover {
+            background: white;
+            color: #68a762;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(104, 167, 98, 0.2);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #68a762;
+            border: 2px solid #68a762;
+        }
+
+        .btn-outline:hover {
+            background: #68a762;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .resume-container {
+                padding: 30px 15px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .pdf-wrapper {
+                padding: 20px;
+            }
+            
+            .pdf {
+                height: 500px;
+            }
+            
+            .quick-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 250px;
+                justify-content: center;
+            }
+        }
+    </style>
 </head>
-
-<style>
-    .pdf {
-        width: 100%;
-        aspect-ratio: 0.5;
-        margin: auto;
-        padding: auto;
-    }
-
-    .pdf, html, body {
-        height: 100%;   
-    }
-
-    .container {
-        display: grid;
-        place-items: center;
-    }
-
-    h1 {
-        text-align: center;
-    }
-    
-    .pdf-fallback {
-        margin-top: 10px;
-        font-size: 1rem;
-        text-align: center;
-    }
-
-</style>
-
 
 <body>
     <header>
@@ -53,12 +165,75 @@
     </header>
 
     <div class="resume-container">
-        <h1> Resume </h1>
-        <object class="pdf" data="resume.pdf" width="800" height="500"></object>
+        <h1>Resume</h1>
+        
+        <div class="pdf-wrapper">
+            <object class="pdf" data="resume.pdf" type="application/pdf">
+                <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                    <p>Loading resume PDF...</p>
+                </div>
+            </object>
+        </div>
+        
         <p class="pdf-fallback">If the PDF doesn't display, <a href="resume.pdf" target="_blank">click here to view it</a>.</p>
-    </div>        
-    
-</div>
+        
+        <div class="quick-links">
+            <a href="resume.pdf" class="btn" download>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" style="margin-right: 5px;">
+                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                    <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+                </svg>
+                Download PDF
+            </a>
+            <a href="projects.html" class="btn btn-outline">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" style="margin-right: 5px;">
+                    <path d="M0 1.5A1.5 1.5 0 0 1 1.5 0h13A1.5 1.5 0 0 1 16 1.5v13a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 14.5v-13zM1.5 1a.5.5 0 0 0-.5.5V5h4V1H1.5zM5 6H1v4h4V6zm1 4h4V6H6v4zm-1 1H1v3.5a.5.5 0 0 0 .5.5H5v-4zm1 0v4h4v-4H6zm5 0v4h3.5a.5.5 0 0 0 .5-.5V11h-4zm0-1h4V6h-4v4zm0-5h4V1.5a.5.5 0 0 0-.5-.5H11v4zm-1 0V1H6v4h4z"/>
+                </svg>
+                View Projects
+            </a>
+            <a href="contact.html" class="btn btn-outline">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" style="margin-right: 5px;">
+                    <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383-4.708 2.825L15 11.105V5.383zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741zM1 11.105l4.708-2.897L1 5.383v5.722z"/>
+                </svg>
+                Contact Me
+            </a>
+        </div>
     </div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add subtle animation to the PDF wrapper
+            const pdfWrapper = document.querySelector('.pdf-wrapper');
+            pdfWrapper.style.opacity = '0';
+            pdfWrapper.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                pdfWrapper.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                pdfWrapper.style.opacity = '1';
+                pdfWrapper.style.transform = 'translateY(0)';
+            }, 300);
+            
+            // Add hover effect to buttons
+            const buttons = document.querySelectorAll('.btn');
+            buttons.forEach(button => {
+                button.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-2px)';
+                });
+                
+                button.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+            
+            setTimeout(() => {
+                const pdfObject = document.querySelector('.pdf');
+                const fallback = document.querySelector('.pdf-fallback');
+                
+                if (pdfObject.offsetHeight === 0 || !pdfObject.contentDocument) {
+                    fallback.style.display = 'block';
+                }
+            }, 2000);
+        });
+    </script>
 </body>
+</html>
